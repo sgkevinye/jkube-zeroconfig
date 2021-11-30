@@ -20,8 +20,9 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'test'
 - task: oc-cmd@2
+  displayName: 'Connect to OpenShift'
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'Pytest-Dev'
@@ -43,7 +44,7 @@ steps:
   displayName: 'Container Build in OpenShift'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'oc:build'
+    goals: 'package oc:build'
     options: '-Popenshift'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
