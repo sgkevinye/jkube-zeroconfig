@@ -20,7 +20,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'test'
+    goals: 'package'
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
@@ -40,10 +40,10 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 - task: Maven@3
-  displayName: 'Generate Resources'
+  displayName: 'Container Build in OpenShift'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'package oc:build'
+    goals: 'oc:build'
     options: '-Popenshift'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
