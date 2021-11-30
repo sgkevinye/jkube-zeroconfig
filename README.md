@@ -27,23 +27,3 @@ Below command will deploy your application on OpenShift cluster.
 ```
 mvn oc:deploy -Popenshift
 ```
-
-#### For Kubernetes
-Start your cluster:
-```
-minikube start
-```
-Below command will create your OpenShift resource descriptors.
-```
-mvn clean k8s:resource -Pkubernetes
-```
-
-Now start docker build  by hitting the build goal.
-```
-mvn package k8s:build -Pkubernetes
-```
-
-Below command will deploy your application on OpenShift cluster.
-```
-mvn k8s:deploy -Pkubernetes
-```
