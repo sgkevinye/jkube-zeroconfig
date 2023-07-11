@@ -21,7 +21,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test'
-- task: oc-cmd@3
+- task: oc-cmd
   displayName: 'Connect to OpenShift'
   inputs:
     connectionType: 'OpenShift Connection Service'
