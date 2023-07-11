@@ -25,7 +25,7 @@ steps:
   displayName: 'Connect to OpenShift'
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'Pytest-Dev'
+    openshiftService: 'rosademo1'
     cmd: 'status'
 - task: Maven@3
   displayName: 'Generate Resources'
